@@ -18,10 +18,6 @@ tasks = [
     }
 ]
 
-
-
-
-
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
     task = filter(lambda t: t['id'] == task_id, tasks)
@@ -86,6 +82,5 @@ def make_public_task(task):
 def get_tasks():
     return jsonify({'tasks': map(make_public_task, tasks)})
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)

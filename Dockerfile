@@ -1,10 +1,13 @@
-FROM python:3-onbuild
+FROM python:2.7.18-alpine3.11
 
-RUN pip3 install  virtualenv --upgrade pip
-RUN virtualenv flask
-RUN pip install -r requirements.txt
-RUN apt-get update && apt-get install -y \ 
-curl
-EXPOSE 5000
+COPY requirements.txt /
 
-CMD ["python","./app.py"]
+RUN pip install -r /requirements.txt
+
+COPY src/ /app
+
+WORKDIR /app
+
+EXPOSE 8000
+
+CMD ["gunicorn", "-w 4", "-b :8000", "app:app"]
