@@ -19,11 +19,11 @@ class Post(db.Model):
     description = db.Column(db.String(255))
     done = db.Column(db.String(50))
     
-    def __init__(self, id, title, content):
+    def __init__(self, id, title, description,done):
         self.id = id
         self.title = title
-        self.content = content
-
+        self.description = description
+        self.done = done
     def __repr__(self):
         return '<Post %s>' % self.title
 
