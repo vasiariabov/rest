@@ -1,18 +1,18 @@
 #!flask/bin/python3
 from flask import Flask, request
-from flask_sqlalchemy import SQLAlchemy # new
-from flask_marshmallow import Marshmallow # new
-from flask_restful import Api, Resource # new
+from flask_sqlalchemy import SQLAlchemy 
+from flask_marshmallow import Marshmallow 
+from flask_restful import Api, Resource 
 from flask_migrate import Migrate
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://vasia:1234@localhost:5432/newnew"
-db = SQLAlchemy(app) # new
+db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-ma = Marshmallow(app)
-api = Api(app) # new
+ma = Marshmallow(app) 
+api = Api(app)
 
-class Post(db.Model):
+class Post(db.Model):                # this part of anouter manual cos i am lazy ass
     __tablename__ = 'task'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
