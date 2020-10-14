@@ -1,15 +1,13 @@
 FROM python:3.6-alpine3.11
 RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev 
-RUN pip install psycopg2-binary
 
 COPY requirements.txt /
 
-RUN pip install -r /requirements.txt
+RUN pip3 install -r /requirements.txt --no-cache-dir
 
+COPY . /app
 
-COPY src/ /app
-
-WORKDIR /app
+WORKDIR /app/src
 
 EXPOSE 8000
 
