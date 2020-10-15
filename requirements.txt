@@ -3,5 +3,5 @@ flask_sqlalchemy==1.0
 flask_marshmallow==0.14
 flask_restful==0.3.8
 flask_migrate==1.0
-
+psycopg2-binary==2.8.5
 gunicorn>=19,<20
