@@ -8,6 +8,16 @@ services:
       - database.env # configure postgres
     volumes:
       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+      
+   web:
+    build: .
+    command: bash -c "alembic upgrade head "
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db   
 
 volumes:
   database-data: # named volumes can be managed easier using docker-compose
