@@ -1,5 +1,5 @@
 FROM python:3.6-alpine3.11
-RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev 
+RUN apk update && apk add bash && apk add postgresql-dev gcc python3-dev musl-dev 
 
 COPY requirements.txt /
 
