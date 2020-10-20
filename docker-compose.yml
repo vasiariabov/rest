@@ -13,9 +13,11 @@ services:
    restart: always
    build: .
    ports:
-     - 5000:5000
+     - 8000:8000
+   command: bash -c "alembic upgrade head && gunicorn -w 4 -b :8000 app:app"
    volumes: 
-     - .:/app
+     - .:/app/scr
+   network_mode: host 
    depends_on:
      - postgres
-   entrypoint: ["python", "app.py"]
+  
