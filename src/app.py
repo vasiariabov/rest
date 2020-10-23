@@ -6,7 +6,7 @@ from flask_restful import Api, Resource
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://vasia_user:1234@0.0.0.0:5432/task_database"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://vasia_user:1234@0.0.0.0:5432/test_db"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 ma = Marshmallow(app) 
