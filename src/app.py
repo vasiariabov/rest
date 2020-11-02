@@ -6,7 +6,7 @@ from flask_restful import Api, Resource
 from flask_migrate import Migrate
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://vasia:1234@localhost:5432/newnew"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://vasia_user:1234@0.0.0.0:5432/test_db"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 ma = Marshmallow(app) 
@@ -74,8 +74,8 @@ class PostResource(Resource):
         db.session.commit()
         return '', 204
 
-api.add_resource(PostListResource, '/posts')
-api.add_resource(PostResource, '/posts/<int:post_id>')
+api.add_resource(PostListResource, '/tasks')
+api.add_resource(PostResource, '/tasks/<int:post_id>')
 
 
 
