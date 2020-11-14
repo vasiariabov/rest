@@ -51,4 +51,4 @@ sudo docker-compose up -d''', execTimeout: 120000, flatten: false, makeEmptyDirs
       }
      }             
    } 
-  } 
+   
