@@ -45,7 +45,7 @@ pipeline {
  steps {
 sshPublisher(publishers: [sshPublisherDesc(configName: 'My Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd /usr/repo/
 sudo docker-compose down
-sudo docker-compose up -d''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/usr/repo', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+sudo docker-compose up -d''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
  
         
         }     
