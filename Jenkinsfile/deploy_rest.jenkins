@@ -28,8 +28,16 @@ pipeline {
                              steps {
                                     git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
 
-      }
+                   }
 
+                  }
+           stage("telegram message") {
+                             steps {
+     sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d text="pull master branch"'
+
+                     
+
+      }     
      }
     }
-}
+   }
