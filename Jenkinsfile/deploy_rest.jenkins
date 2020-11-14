@@ -43,7 +43,7 @@ pipeline {
 
             stage("deploy_copy") {
                              steps {
-                                    sshagent(['server_ssh_key']){
+                                    sshagent(credentials: ['server_ssh_key']){
                                       sh "scp -rp StrictHostKeyChecking=no var/lib/jenkins/workspace/Deploy_Rest_api ubuntu@3.21.37.151:/usr/repo"
  
         }
