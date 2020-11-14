@@ -26,7 +26,7 @@ pipeline {
 
            stage("git") {
                              steps {
-                                    git credentialsId: 'guthub_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
+                                    git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
 
       }
 
