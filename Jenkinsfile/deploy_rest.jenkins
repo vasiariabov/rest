@@ -12,10 +12,16 @@ pipeline {
 		timestamps()
 	}
     stages {
-		  stage("Preparations") {
+		  stage("lockal message") {
 			  steps {
 				  echo " =========== master branch was changed"
 			  }
 		  }
+                   stage("telegram message") {
+                             steps {
+     sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d text="master branch was changed"'
+
+            }
+        }
     }
 }
