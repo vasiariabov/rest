@@ -50,6 +50,13 @@ sudo docker-compose up -d''', execTimeout: 120000, flatten: false, makeEmptyDirs
         
         }     
       }
+
+
+              stage("telegram message complite") {
+                             steps {
+                  sh 'curl -s -X POST https://api.telegram.org/bot817118733:AAG5NfFhjdOc-xR4xCm0BzMpuGEQPoyDtAU/sendMessage -d chat_id=431988564 -d text="mission complite"'
+
      }             
    } 
-   
+ }  
+}
