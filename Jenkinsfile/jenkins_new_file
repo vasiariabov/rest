@@ -1,0 +1,53 @@
+#!groovy
+// Runs build and deploy to develop on push
+properties([disableConcurrentBuilds()])
+
+pipeline {
+ environment {
+    registry = "vasiariabov/rest_deploy"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
+    agent any { 
+		label 'master'
+		}
+	triggers { pollSCM('* * * * *') }
+	options {
+		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+		timestamps()
+	}
+    stages {
+		  stage("lockal message") {
+			  steps {
+				  echo " =========== master branch was changed"
+			  }
+		  }
+      
+
+     stage("Clone git") {
+                     steps {
+                            git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
+
+                          }
+
+                  }
+        
+      stage('Building image') {
+      steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+
+
+      stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+
+     }             
+   } 
+ }  
+}
