@@ -8,8 +8,8 @@ pipeline {
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
-    agent any 
-	{ dockerfile true }
+    agent { dockerfile true }
+	
 	triggers { pollSCM('* * * * *') }
 	options {
 		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
