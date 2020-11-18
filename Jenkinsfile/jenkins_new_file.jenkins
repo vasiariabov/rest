@@ -34,7 +34,7 @@ pipeline {
       stage('Building image') {
       steps{
         
-        sh " sudo docker build -t vasiariabov/rest_deploy .
+        sh " sudo docker build -t vasiariabov/rest_deploy . "
       }
     }
 
