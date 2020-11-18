@@ -26,6 +26,7 @@ pipeline {
      stage("Clone git") {
                      steps {
                             sh " cd /home/vasia/copy_repo "
+			    sh " git clone https://github.com/vasiariabov/rest.git"
 			     git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
 
                           }
@@ -34,8 +35,7 @@ pipeline {
         
       stage('Building image') {
       steps{
-        sh " cp -r /var/lib/jenkins/workspace/Deploy_Rest_api_2/  /home/vasia/copy_repo "
-        sh " docker build -t vasiariabov/rest_d "
+        sh " cd /home/vasia/copy_repo 
         sh " docker build -t vasiariabov/rest_deploy . "
       }
     }
