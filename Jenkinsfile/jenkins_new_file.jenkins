@@ -35,7 +35,7 @@ pipeline {
         
       stage('Building image') {
       steps{
-        sh " cd /home/vasia/copy_repo 
+        sh " cd /home/vasia/copy_repo "
         sh " docker build -t vasiariabov/rest_deploy . "
       }
     }
