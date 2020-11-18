@@ -9,7 +9,7 @@ pipeline {
     dockerImage = ''
   }
     agent any 
-	{dockerfile true}
+	{ dockerfile true }
 	triggers { pollSCM('* * * * *') }
 	options {
 		buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
