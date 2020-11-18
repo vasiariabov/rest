@@ -8,7 +8,7 @@ pipeline {
     registryCredential = 'dockerhub'
     dockerImage = ''
   }
-    agent { dockerfile true }
+    agent any 
 	
 	triggers { pollSCM('* * * * *') }
 	options {
