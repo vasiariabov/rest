@@ -33,7 +33,7 @@ pipeline {
         
       stage('Building image') {
       steps{
-        sh " cp -r /var/lib/jenkins/workspace/Deploy_Rest_api_2/  /home/vasia/copy_repo "
+        sh " sudo cp -r /var/lib/jenkins/workspace/Deploy_Rest_api_2/  /home/vasia/copy_repo "
         sh " docker build -t vasiariabov/rest_d "
         sh " docker build -t vasiariabov/rest_deploy . "
       }
