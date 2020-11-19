@@ -41,7 +41,7 @@ pipeline {
        sh " docker buid -t vasiariabov/ rest ." 	
       }
     }
-  }
+  
 
       stage('Deploy Image') {
       steps{
