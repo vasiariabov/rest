@@ -36,7 +36,6 @@ pipeline {
       stage('Building image') {
       steps{
 	
-       dockerImage = docker.build registry + " :$BUILD_NUMBER"
        sh " cd /home/vasia/copy_repo "
        sh " docker buid -t vasiariabov/ rest ." 	
       }
