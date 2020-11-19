@@ -34,8 +34,8 @@ pipeline {
         
       stage('Building image') {
       steps{
-	sh " cd /home/jenk/workspace/Deploy_Rest_api_2 "
-	sh " docker build -t vasiariabov/rest ."
+	
+	sh"docker build -t vasiariabov/rest ."
 	      
     }
    }  
