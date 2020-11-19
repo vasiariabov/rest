@@ -28,7 +28,7 @@ pipeline {
                           
 			     git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
                               sh " cd /home/vasia/copy_repo "
-			      sh " git pull origin master "
+			      sh " git pull origin master ", credentialsId: 'my_cred_id
                           }
 
                   }
