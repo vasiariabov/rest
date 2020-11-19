@@ -27,8 +27,7 @@ pipeline {
                      steps {
                           
 			     git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
-                              sh " cd /home/vasia/copy_repo "
-			      sh " git pull origin master ", credentialsId: 'my_cred_id
+                              
                           }
 
                   }
@@ -36,11 +35,11 @@ pipeline {
       stage('Building image') {
       steps{
 	
-       sh " cd /home/vasia/copy_repo "
-       sh " docker buid -t vasiariabov/ rest ." 	
+	      script {
+		dockerImage = docker.build registry + ":$BUILD_NUMBER"      
       }
     }
-  
+   }  
 
       stage('Deploy Image') {
       steps{
