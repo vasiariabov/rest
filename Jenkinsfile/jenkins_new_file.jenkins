@@ -25,8 +25,7 @@ pipeline {
 
      stage("Clone git") {
                      steps {
-                            sh " cd /home/vasia/copy_repo "
-			    sh " git clone https://github.com/vasiariabov/rest.git"
+                          
 			     git credentialsId: 'github_ssh_key', url: 'git@github.com:vasiariabov/rest.git', branch: 'master'
 
                           }
