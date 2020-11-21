@@ -1,7 +1,7 @@
 #!groovy
 // Runs build and deploy to develop on push
 // update file, for test jenkins webhook
-// update file, for test jenkins webhook
+
 properties([disableConcurrentBuilds()])
 
 pipeline {
